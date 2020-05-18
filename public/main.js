@@ -6,11 +6,9 @@ var state = {
   isData: false,
   data: []
 };
-$("#s").on("submit", function (e) {
-  e.preventDefault();
-  console.log($("#addr").val());
-  var search_name = $("#addr").val(); // 자료 검색
 
+function search_data(search_name) {
+  // 자료 검색
   $.getJSON('./src/data.json', function (data) {
     state.data = []; // 기존 상태 버퍼 삭제
 
@@ -40,4 +38,18 @@ $("#s").on("submit", function (e) {
       alert("값을 입력해 주세요!");
     }
   });
+}
+
+$("#submit1").on("click", function (e) {
+  e.preventDefault();
+  console.log($("#addr").val());
+  var search_name = $("#addr").val();
+  search_data(search_name);
+}); //
+
+$("#submit2").on("click", function (e) {
+  e.preventDefault();
+  console.log($("#slt option:selected").val());
+  var search_name = $("#slt option:selected").val();
+  search_data(search_name);
 }); // end submit
