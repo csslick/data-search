@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "build": "babel ./*.js -d public"
+    "build": "babel src -d public"
   },
   "keywords": [],
   "author": "",
